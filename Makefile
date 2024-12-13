@@ -11,11 +11,6 @@ ifeq ($(DISTRO),ubuntu)
     LDFLAGS += -lbsd
 endif
 
-ifeq ($(DISTRO),debian)
-    CFLAGS += -DDEBIAN
-    LDFLAGS += -lbsd
-endif
-
 # Find all .c files in SRC_DIR and LIB_DIR
 SRC_FILES := $(wildcard $(SRC_DIR)/*.c)
 LIB_FILES := $(wildcard $(LIB_DIR)/*.c)
