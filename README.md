@@ -10,3 +10,8 @@
 - By unsigned int range.
 - Just a random number.
 - Parameterization.
+
+## UUID
+
+### Features
+- Supports UUID v4
