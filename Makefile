@@ -4,7 +4,17 @@ SRC_DIR := src
 LIB_DIR := lib
 BUILD_DIR := build
 
-LDFLAGS += -lbsd
+DISTRO := $(shell . /etc/os-release && echo $$ID)
+
+ifeq ($(DISTRO),ubuntu)
+    CFLAGS += -DUBUNTU
+    LDFLAGS += -lbsd
+endif
+
+ifeq ($(DISTRO),debian)
+    CFLAGS += -DDEBIAN
+    LDFLAGS += -lbsd
+endif
 
 # Find all .c files in SRC_DIR and LIB_DIR
 SRC_FILES := $(wildcard $(SRC_DIR)/*.c)

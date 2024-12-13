@@ -1,5 +1,9 @@
 #include "random.h"
+#ifdef UBUNTU
+#include <bsd/stdlib.h>
+#else
 #include <stdlib.h>
+#endif
 
 inline uint32_t get_random_unsigned_number(){
     return arc4random();
