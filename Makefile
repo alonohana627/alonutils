@@ -4,6 +4,8 @@ SRC_DIR := src
 LIB_DIR := lib
 BUILD_DIR := build
 
+LDFLAGS += -lbsd
+
 # Find all .c files in SRC_DIR and LIB_DIR
 SRC_FILES := $(wildcard $(SRC_DIR)/*.c)
 LIB_FILES := $(wildcard $(LIB_DIR)/*.c)
