@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        distro: [ubuntu:latest, debian:latest]
+        distro: ["ubuntu:latest", "debian:latest"]
 
     steps:
       - uses: actions/checkout@v4
