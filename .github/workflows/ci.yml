@@ -35,7 +35,7 @@ jobs:
         run: |
           docker exec build-container bash -c "
           cd /workspace &&
-          make test DISTRO=ubuntu
+          make tests DISTRO=ubuntu
           "
 
       - name: Clean up Docker container
