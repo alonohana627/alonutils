@@ -46,4 +46,4 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 tests:
-	./tests/generand.sh
+	bash ./tests/generand.sh
