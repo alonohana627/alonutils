@@ -7,9 +7,9 @@ validate_uuid_v4() {
     local uuid_pattern='^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'
 
     if [[ $uuid =~ $uuid_pattern ]]; then
-        return 0  # Valid UUID v4
+        return 0
     else
-        return 1  # Invalid UUID v4
+        return 1
     fi
 }
 
@@ -26,11 +26,11 @@ declare -a tests=(
     $(./build/uuid)
 )
 
-expected_exit_code=0  # Expected for valid UUID v4
+expected_exit_code=0
 failed_tests=()
 
 for uuid in "${tests[@]}"; do
-    description="Checking UUID: $uuid"
+    description="Checking if a generated UUID is valid: $uuid"
     validate_uuid_v4 "$uuid"
     actual_exit_code=$?
 

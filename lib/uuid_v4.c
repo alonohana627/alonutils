@@ -55,10 +55,35 @@ const char *uuid_v4_to_string(uuid_v4_t *uuid) {
   snprintf(uuid_str, sizeof(uuid_str), "%08X-%04X-%04X-%04X-%012lX", first_part,
            second_part, third_part, fourth_part_high, fourth_part_low);
 
-  // Converts the str to lowecase
+  // Converts the str to lowercase
   for (int i = 0; i < 36; i++) {
     lowercase_uuid[i] = tolower(uuid_str[i]);
   }
 
   return lowercase_uuid;
+}
+
+char *fast_uuid_v4(void) {
+  const char *hex = "0123456789abcdef";
+  char *uuid = (char *)malloc(
+      37 * sizeof(char)); // Allocate memory for 36 characters + null terminator
+  if (!uuid) {
+    fprintf(stderr, "Memory allocation failed\n");
+    exit(EXIT_FAILURE);
+  }
+
+  for (int i = 0; i < 36; i++) {
+    if (i == 8 || i == 13 || i == 18 || i == 23) {
+      uuid[i] = '-';
+    } else if (i == 14) {
+      uuid[i] = '4'; // UUID version 4
+    } else if (i == 19) {
+      uuid[i] = hex[(arc4random() % 4) + 8]; // UUID variant
+    } else {
+      uuid[i] = hex[arc4random() % 16];
+    }
+  }
+
+  uuid[36] = '\0'; // Null-terminate the string
+  return uuid;
 }

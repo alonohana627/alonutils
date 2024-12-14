@@ -46,4 +46,6 @@ uuid_v4_t *generate_uuid(void);
 
 const char *uuid_v4_to_string(uuid_v4_t *uuid);
 
+char *fast_uuid_v4(void);
+
 #endif
