@@ -47,3 +47,4 @@ clean:
 
 tests:
 	bash ./tests/generand.sh
+	bash ./tests/uuid.bash

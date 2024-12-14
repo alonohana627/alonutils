@@ -48,8 +48,7 @@ int main(int argc, char **argv) {
   } else if (argc == 2) {
     if (strncmp(argv[1], "--help", sizeof("--help"))) {
       usage();
-      exit(1); // prevents the program from accidentally including its result in
-               // a pipe
+      exit(1);
     }
   }
 
